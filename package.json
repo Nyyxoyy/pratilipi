@@ -1,0 +1,12 @@
+{
+  "name": "notification-system",
+  "version": "1.0.0",
+  "description": "Microservices-based notification system",
+  "scripts": {
+    "install-all": "cd services/user-service && npm install && cd ../notification-service && npm install && cd ../recommendation-service && npm install && cd ../../gateway && npm install",
+    "build-all": "cd services/user-service && npm run build && cd ../notification-service && npm run build && cd ../recommendation-service && npm run build && cd ../../gateway && npm run build",
+    "start": "docker-compose up --build",
+    "dev": "docker-compose up --build",
+    "stop": "docker-compose down"
+  }
+} 

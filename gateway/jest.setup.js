@@ -1,0 +1,9 @@
+process.env.REDIS_HOST = 'localhost';
+process.env.REDIS_PORT = '6379';
+process.env.REDIS_PASSWORD = '';
+process.env.JWT_SECRET = 'test-secret-key';
+process.env.NODE_ENV = 'test';
+process.env.PORT = '4000';
+process.env.USER_SERVICE_URL = 'http://localhost:3001';
+process.env.NOTIFICATION_SERVICE_URL = 'http://localhost:3002';
+process.env.RECOMMENDATION_SERVICE_URL = 'http://localhost:3003'; 

@@ -1,0 +1,67 @@
+scalar JSON
+
+type User {
+  id: ID!
+  email: String!
+  name: String!
+  preferences: [String!]!
+  notifications: [Notification!]!
+  recommendations: [JSON!]!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Notification {
+  id: ID!
+  userId: ID!
+  type: String!
+  content: String!
+  read: Boolean!
+  sentAt: String!
+}
+
+type AuthResponse {
+  user: User!
+  token: String!
+}
+
+input RegisterInput {
+  email: String!
+  password: String!
+  name: String!
+  preferences: [String!]!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input ActivityInput {
+  userId: ID!
+  productId: ID!
+  activityType: String!
+}
+
+input NotificationInput {
+  userId: ID!
+  type: String!
+  content: String!
+}
+
+type Query {
+  me: User
+  user(id: ID!): User
+  notifications(userId: ID!, type: String): [Notification!]!
+  unreadNotifications(userId: ID!): [Notification!]!
+  recommendations(userId: ID!): [JSON!]!
+}
+
+type Mutation {
+  register(input: RegisterInput!): AuthResponse!
+  login(input: LoginInput!): AuthResponse!
+  updatePreferences(preferences: [String!]!): User!
+  markNotificationAsRead(id: ID!): Notification!
+  trackUserActivity(input: ActivityInput!): Boolean!
+  createNotification(input: NotificationInput!): Notification!
+} 
